@@ -1,0 +1,35 @@
+openapi: 3.0.0
+info:
+  title: Hello Docker API
+  description: A sample API to demonstrate Choreo Docker Service
+  version: 1.0.0
+paths:
+  /saludo:
+    get:
+      summary: Returns a greeting
+      description: Responde con un saludo personalizado
+      parameters:
+        - name: nombre
+          in: query
+          description: Nombre de la persona a saludar.
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A JSON object containing a greeting
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Respuesta'
+components:
+  schemas:
+    Respuesta:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Id aleatorio entre 1 y 10
+        content:
+          type: string
+          description: Respuesta personalizada
