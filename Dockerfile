@@ -3,4 +3,5 @@ WORKDIR /opt
 ENV PORT 8080
 EXPOSE 8080
 COPY target/*.jar /opt/app.jar
+COPY HelloDocker.yaml openapi/HelloDocker.yaml
 ENTRYPOINT exec java $JAVA_OPTS -jar app.jar
